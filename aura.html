@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Project AURA — Stany Arthur Gagnaux</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#FAFAF7; --text:#1A1A1A; --text-2:#4A4A4A; --muted:#8A8A85;
+    --line:#E3E1DB; --line-strong:#1A1A1A; --accent:#8B2635;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.55; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 2rem; }
+  @media (max-width:600px) { .wrap { padding:0 1.25rem; } }
+
+  nav { border-bottom:1px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:50; }
+  nav .wrap { display:flex; justify-content:space-between; align-items:center; padding:1.4rem 2rem; max-width:1200px; }
+  @media (max-width:600px) { nav .wrap { padding:1.4rem 1.25rem; } }
+  .logo { font-weight:600; font-size:1.05rem; }
+  .back { font-size:0.9rem; color:var(--text-2); transition:color 0.2s; }
+  .back:hover { color:var(--accent); }
+
+  .crumb { font-size:0.85rem; color:var(--muted); padding-top:2.5rem; margin-bottom:1.5rem; }
+
+  .placed-banner {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--text); color: var(--bg);
+    padding: 0.45rem 0.85rem; border-radius: 999px;
+    font-size: 0.78rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hdr { padding:0 0 4rem; border-bottom:1px solid var(--line); }
+  .kicker { font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; font-weight:500; margin-bottom:0.75rem; }
+  h1 { font-weight:500; font-size:clamp(2.2rem,5vw,3.4rem); letter-spacing:-0.025em; line-height:1.05; margin-bottom:1.5rem; max-width:24ch; }
+  .subtitle { font-size:1.1rem; color:var(--text-2); max-width:40rem; line-height:1.55; margin-bottom:2rem; }
+  .hdr-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; padding-top:2rem; border-top:1px solid var(--line); }
+  .hdr-meta > div { display:flex; flex-direction:column; gap:0.3rem; }
+  .hdr-meta-label { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; }
+  .hdr-meta-value { font-size:1rem; font-weight:500; }
+  @media (max-width:700px) { .hdr-meta { grid-template-columns:repeat(2,1fr); } }
+
+  section.body { padding:4rem 0; border-bottom:1px solid var(--line); }
+  .section-grid { display:grid; grid-template-columns:180px 1fr; gap:3rem; align-items:start; }
+  .section-grid .label { font-size:0.85rem; color:var(--muted); position:sticky; top:6rem; }
+  @media (max-width:800px) { .section-grid { grid-template-columns:1fr; gap:1rem; } .section-grid .label { position:static; font-weight:500; color:var(--text); } }
+  .prose { font-size:1.02rem; line-height:1.7; color:var(--text-2); max-width:40rem; }
+  .prose p + p { margin-top:1.1rem; }
+  .prose strong { color:var(--text); font-weight:500; }
+  .prose ul { list-style: none; padding: 0; margin: 1.2rem 0; }
+  .prose ul li {
+    padding: 0.65rem 0 0.65rem 1.5rem;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .prose ul li:last-child { border-bottom: none; }
+  .prose ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+  .prose .closing {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-style: italic;
+    color: var(--text);
+  }
+
+  .video-frame {
+    background: #000;
+    aspect-ratio: 16/9;
+    width: 100%;
+    border: 1px solid var(--line);
+    margin: 1.5rem 0;
+  }
+  .video-frame video, .video-frame iframe {
+    width: 100%; height: 100%; display: block; border: 0;
+  }
+
+  .team-photo {
+    aspect-ratio: 16/10;
+    background: #E8E3D7;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .team-photo .ph-label {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:0.75rem 1.4rem; border:1px solid var(--line-strong);
+    font-size:0.9rem; font-weight:500; font-family:inherit;
+    cursor:pointer; transition:all 0.2s; background:transparent;
+    color:var(--text); border-radius:999px;
+  }
+  .btn:hover { background:var(--text); color:var(--bg); }
+
+  .next { padding:3rem 0; }
+  .next-link { display:grid; grid-template-columns:1fr auto; align-items:center; padding:1.5rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); transition:opacity 0.2s; }
+  .next-link:hover { opacity:0.6; }
+  .next-label { font-size:0.8rem; color:var(--muted); margin-bottom:0.25rem; }
+  .next-title { font-size:1.2rem; font-weight:500; }
+  .next-arrow { font-size:1.2rem; color:var(--muted); }
+
+  footer { padding:2rem 0; font-size:0.85rem; color:var(--muted); }
+  footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1200px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="./index.html" class="logo">Stany Arthur Gagnaux</a>
+    <a href="./index.html#work" class="back">← All work</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="crumb"><a href="./index.html">Home</a> &nbsp;/&nbsp; <a href="./index.html#work">Work</a> &nbsp;/&nbsp; <span style="color:var(--text);">Project AURA</span></div>
+
+  <header class="hdr">
+    <div class="placed-banner">3rd place · ZHAW Innovation Weekend</div>
+    <div class="kicker">Competition project</div>
+    <h1>Project AURA</h1>
+    <p class="subtitle">A 48-hour pitch and prototype built with a multidisciplinary team at ZHAW Innovation Weekend.</p>
+    <div class="hdr-meta">
+      <div><div class="hdr-meta-label">Event</div><div class="hdr-meta-value">ZHAW Innovation Weekend</div></div>
+      <div><div class="hdr-meta-label">Result</div><div class="hdr-meta-value">3rd place</div></div>
+      <div><div class="hdr-meta-label">Format</div><div class="hdr-meta-value">48-hour sprint</div></div>
+      <div><div class="hdr-meta-label">Team</div><div class="hdr-meta-value">4 core members</div></div>
+    </div>
+  </header>
+</div>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">Pitch video</div>
+      <div class="prose">
+        <p>
+          The full pitch we presented to the jury at ZHAW Innovation Weekend. Five minutes covering the problem, the approach, and the prototype.
+        </p>
+        <div class="video-frame">
+          <video controls preload="metadata" poster="./assets/aura-poster.jpg">
+            <source src="./assets/aura-pitch.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">The team</div>
+      <div class="prose">
+        <p>
+          The core AURA project team consisted of four members, all of whom are present in the photo below alongside two friends who supported the team throughout the weekend.
+        </p>
+        <div class="team-photo">
+          <img src="./assets/aura-team.jpg" alt="Project AURA team at ZHAW Innovation Weekend" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">What makes AURA special</div>
+      <div class="prose">
+        <p>
+          AURA reimagines investing as something deeply personal. Rather than starting from generic risk-return frameworks, the platform builds investment strategies around the individual.
+        </p>
+        <ul>
+          <li>Considers career, region, values, and goals</li>
+          <li>Combines these inputs with real-time market data</li>
+          <li>Develops individual strategies beyond traditional risk-return portfolios</li>
+          <li>Takes personalisation in investing to a new level</li>
+        </ul>
+        <p class="closing">
+          An exciting step towards truly tailored financial solutions in an increasingly complex world.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="next">
+    <a href="./assets/cfa-sika-report.pdf" target="_blank" rel="noopener" class="next-link">
+      <div>
+        <div class="next-label">Next</div>
+        <div class="next-title">CFA Research Challenge: Sika AG</div>
+      </div>
+      <div class="next-arrow">↗</div>
+    </a>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Stany Arthur Gagnaux</span>
+    <a href="./index.html">Home</a>
+  </div>
+</footer>
+
+</body>
+</html>
