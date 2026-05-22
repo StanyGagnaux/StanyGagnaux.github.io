@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sustainable Lending Practices in Banks — Stany Arthur Gagnaux</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#FAFAF7; --text:#1A1A1A; --text-2:#4A4A4A; --muted:#8A8A85;
+    --line:#E3E1DB; --line-strong:#1A1A1A; --accent:#8B2635;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.55; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 2rem; }
+  @media (max-width:600px) { .wrap { padding:0 1.25rem; } }
+
+  nav { border-bottom:1px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:50; }
+  nav .wrap { display:flex; justify-content:space-between; align-items:center; padding:1.4rem 2rem; max-width:1200px; }
+  @media (max-width:600px) { nav .wrap { padding:1.4rem 1.25rem; } }
+  .logo { font-weight:600; font-size:1.05rem; }
+  .back { font-size:0.9rem; color:var(--text-2); transition:color 0.2s; }
+  .back:hover { color:var(--accent); }
+
+  .crumb { font-size:0.85rem; color:var(--muted); padding-top:2.5rem; margin-bottom:1.5rem; }
+  .crumb a:hover { color:var(--text); }
+
+  .hdr { padding:0 0 4rem; border-bottom:1px solid var(--line); }
+  .kicker { font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; font-weight:500; margin-bottom:0.75rem; }
+  h1 { font-weight:500; font-size:clamp(2.2rem,5vw,3.4rem); letter-spacing:-0.025em; line-height:1.05; margin-bottom:2rem; max-width:24ch; }
+  .hdr-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; padding-top:2rem; border-top:1px solid var(--line); }
+  .hdr-meta > div { display:flex; flex-direction:column; gap:0.3rem; }
+  .hdr-meta-label { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; }
+  .hdr-meta-value { font-size:1rem; font-weight:500; }
+  @media (max-width:700px) { .hdr-meta { grid-template-columns:repeat(2,1fr); } }
+
+  section.body { padding:4rem 0; border-bottom:1px solid var(--line); }
+  .section-grid { display:grid; grid-template-columns:180px 1fr; gap:3rem; align-items:start; }
+  .section-grid .label { font-size:0.85rem; color:var(--muted); position:sticky; top:6rem; }
+  @media (max-width:800px) { .section-grid { grid-template-columns:1fr; gap:1rem; } .section-grid .label { position:static; font-weight:500; color:var(--text); } }
+  .prose { font-size:1.02rem; line-height:1.7; color:var(--text-2); max-width:40rem; }
+  .prose p { text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
+  .prose p + p { margin-top:1.1rem; }
+  .prose strong { color:var(--text); font-weight:500; }
+
+  .cover-wrap {
+    margin-top:2rem; padding:2rem; background:#fff; border:1px solid var(--line);
+    text-align:center;
+  }
+  .cover-wrap img { margin:0 auto 1.5rem; max-width:100%; border:1px solid var(--line); }
+
+  .btn {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding:0.75rem 1.4rem; border:1px solid var(--line-strong);
+    font-size:0.9rem; font-weight:500; font-family:inherit;
+    cursor:pointer; transition:all 0.2s; background:transparent;
+    color:var(--text); border-radius:999px;
+  }
+  .btn:hover { background:var(--text); color:var(--bg); }
+  .btn-primary { background:var(--text); color:var(--bg); }
+  .btn-primary:hover { background:var(--accent); border-color:var(--accent); }
+  .btn svg { width:14px; height:14px; }
+
+  .next { padding:3rem 0; }
+  .next-link { display:grid; grid-template-columns:1fr auto; align-items:center; padding:1.5rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); transition:opacity 0.2s; }
+  .next-link:hover { opacity:0.6; }
+  .next-label { font-size:0.8rem; color:var(--muted); margin-bottom:0.25rem; }
+  .next-title { font-size:1.2rem; font-weight:500; }
+  .next-arrow { font-size:1.2rem; color:var(--muted); }
+
+  footer { padding:2rem 0; font-size:0.85rem; color:var(--muted); }
+  footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1200px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="./index.html" class="logo">Stany Arthur Gagnaux</a>
+    <a href="./index.html#work" class="back">← All work</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="crumb"><a href="./index.html">Home</a> &nbsp;/&nbsp; <a href="./index.html#work">Work</a> &nbsp;/&nbsp; <span style="color:var(--text);">Sustainable lending research</span></div>
+
+  <header class="hdr">
+    <div style="display:inline-flex; align-items:center; gap:0.5rem; background:#E8EFE6; color:#2C5731; padding:0.45rem 0.85rem; border-radius:999px; font-size:0.78rem; font-weight:500; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:1.5rem;">Completed · May 2026</div>
+    <div class="kicker">Research project · ZHAW Advanced International Research Projects · 2026</div>
+    <h1>Sustainable Lending Practices in Banks</h1>
+    <div class="hdr-meta">
+      <div>
+        <div class="hdr-meta-label">Type</div>
+        <div class="hdr-meta-value">Empirical research</div>
+      </div>
+      <div>
+        <div class="hdr-meta-label">Domain</div>
+        <div class="hdr-meta-value">Banking · ESG</div>
+      </div>
+      <div>
+        <div class="hdr-meta-label">Authors</div>
+        <div class="hdr-meta-value">Fritsche, Gagnaux, Rahmani</div>
+      </div>
+      <div>
+        <div class="hdr-meta-label">Supervisor</div>
+        <div class="hdr-meta-value">Dr. Ruben Seiberlich</div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">Abstract</div>
+      <div class="prose">
+        <p>
+          This paper asks whether the ESG performance of European banks is associated with lower credit risk in their lending portfolios. We estimate two-way fixed-effects regressions of the non-performing loan (NPL) ratio on Bloomberg ESG scores for 35 listed European commercial banks over 2015–2024 (Model 1), and on the Rated ESG Exposure Index (REEI), a novel composite that weights each bank's sectoral loan exposure by climate transition risk, hand-collected from Pillar 3 disclosures for 32 banks over 2018–2024 (Model 2).
+        </p>
+        <p>
+          In Model 1, the combined ESG coefficient is negative across all specifications and reaches significance under the post-2018 IFRS 9 subsample. The pillar decomposition is the most informative result: the Social pillar drives a strong negative association that survives robustness checks, while the Environmental pillar enters positive, a pattern attributable to the disclosure-weighted construction of the Bloomberg E score rather than environmental management raising credit risk. Model 2 produces a clean null: the REEI coefficient is statistically indistinguishable from zero and reverses sign on the exclusion of four distressed banks.
+        </p>
+        <p>
+          The paper contributes by empirically separating the market-perception channel (ESG ratings) from the portfolio-composition channel (sectoral transition exposure), and by documenting that the credit-risk-relevant content of the aggregate ESG score is concentrated in the Social pillar rather than the Environmental pillar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">Read the paper</div>
+      <div class="prose">
+        <p>
+          Full paper, methodology, regression tables, and robustness checks are in the PDF.
+        </p>
+        <div class="cover-wrap">
+          <img src="./assets/cerm-cover.png" alt="Sustainable Lending Practices in Banks — cover" />
+          <a href="./assets/cerm-report.pdf" class="btn btn-primary" target="_blank">
+            Download full paper (PDF)
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="next">
+    <a href="./aura.html" class="next-link">
+      <div>
+        <div class="next-label">Next</div>
+        <div class="next-title">Project AURA</div>
+      </div>
+      <div class="next-arrow">→</div>
+    </a>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Stany Arthur Gagnaux</span>
+    <a href="./index.html">Home</a>
+  </div>
+</footer>
+
+</body>
+</html>
