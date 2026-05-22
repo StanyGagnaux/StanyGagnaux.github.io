@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RAC Research — Stany Arthur Gagnaux</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#FAFAF7; --text:#1A1A1A; --text-2:#4A4A4A; --muted:#8A8A85;
+    --line:#E3E1DB; --line-strong:#1A1A1A; --accent:#8B2635;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.55; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  img { max-width:100%; display:block; }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 2rem; }
+  @media (max-width:600px) { .wrap { padding:0 1.25rem; } }
+
+  nav { border-bottom:1px solid var(--line); background:var(--bg); position:sticky; top:0; z-index:50; }
+  nav .wrap { display:flex; justify-content:space-between; align-items:center; padding:1.4rem 2rem; max-width:1200px; }
+  @media (max-width:600px) { nav .wrap { padding:1.4rem 1.25rem; } }
+  .logo { font-weight:600; font-size:1.05rem; }
+  .back { font-size:0.9rem; color:var(--text-2); transition:color 0.2s; }
+  .back:hover { color:var(--accent); }
+
+  .crumb { font-size:0.85rem; color:var(--muted); padding-top:2.5rem; margin-bottom:1.5rem; }
+  .crumb a:hover { color:var(--text); }
+
+  .active-banner {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background:var(--text); color:var(--bg);
+    padding:0.45rem 0.85rem; border-radius:999px;
+    font-size:0.78rem; font-weight:500;
+    text-transform:uppercase; letter-spacing:0.06em;
+    margin-bottom:1.5rem;
+  }
+  .active-banner .pulse {
+    width:6px; height:6px; border-radius:50%;
+    background:#E8B547;
+    animation:pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .hdr { padding:0 0 4rem; border-bottom:1px solid var(--line); }
+  .kicker { font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em; font-weight:500; margin-bottom:0.75rem; }
+  h1 { font-weight:500; font-size:clamp(2.2rem,5vw,3.4rem); letter-spacing:-0.025em; line-height:1.05; margin-bottom:2rem; max-width:22ch; }
+  .hdr-meta { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; padding-top:2rem; border-top:1px solid var(--line); }
+  .hdr-meta > div { display:flex; flex-direction:column; gap:0.3rem; }
+  .hdr-meta-label { font-size:0.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em; }
+  .hdr-meta-value { font-size:1rem; font-weight:500; }
+  @media (max-width:700px) { .hdr-meta { grid-template-columns:repeat(2,1fr); } }
+
+  section.body { padding:4rem 0; border-bottom:1px solid var(--line); }
+  .section-grid { display:grid; grid-template-columns:180px 1fr; gap:3rem; align-items:start; }
+  .section-grid .label { font-size:0.85rem; color:var(--muted); position:sticky; top:6rem; }
+  @media (max-width:800px) {
+    .section-grid { grid-template-columns:1fr; gap:1rem; }
+    .section-grid .label { position:static; font-weight:500; color:var(--text); }
+  }
+  .prose { font-size:1.02rem; line-height:1.7; color:var(--text-2); max-width:40rem; }
+  .prose p { text-align:justify; hyphens:auto; -webkit-hyphens:auto; }
+  .prose p + p { margin-top:1.1rem; }
+  .prose strong { color:var(--text); font-weight:500; }
+
+  /* BRAND CARD */
+  .brand-card {
+    background:#1C2B4A;
+    padding:3rem;
+    margin:1.5rem 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .brand-card::before {
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:2px;
+    background:#C9A84C;
+  }
+  .brand-logo-wrap {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0.5rem 0 2rem;
+  }
+  .brand-logo-wrap img {
+    width:100%;
+    max-width:420px;
+    /* invert parchment bg to navy: multiply blend makes white transparent */
+    mix-blend-mode:screen;
+    opacity:0.95;
+  }
+  .brand-tagline {
+    border-top:1px solid rgba(201,168,76,0.3);
+    padding-top:1.5rem;
+    font-family:'Playfair Display', Georgia, serif;
+    font-style:italic;
+    font-size:1rem;
+    color:#E8D5A0;
+    text-align:center;
+    letter-spacing:0.01em;
+  }
+
+  /* FOCUS GRID */
+  .focus-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border-top:1px solid var(--line-strong);
+    border-left:1px solid var(--line);
+    margin:1.5rem 0;
+  }
+  .focus-cell {
+    padding:1.25rem 1rem;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .focus-label { font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:0.45rem; }
+  .focus-value { font-size:0.97rem; color:var(--text); font-weight:500; line-height:1.4; }
+  .focus-detail { font-size:0.88rem; color:var(--text-2); margin-top:0.2rem; line-height:1.45; }
+  @media (max-width:600px) { .focus-grid { grid-template-columns:1fr; } }
+
+  .next { padding:3rem 0; }
+  .next-link {
+    display:grid; grid-template-columns:1fr auto; align-items:center;
+    padding:1.5rem 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    transition:opacity 0.2s;
+  }
+  .next-link:hover { opacity:0.6; }
+  .next-label { font-size:0.8rem; color:var(--muted); margin-bottom:0.25rem; }
+  .next-title { font-size:1.2rem; font-weight:500; }
+  .next-arrow { font-size:1.2rem; color:var(--muted); }
+
+  footer { padding:2rem 0; font-size:0.85rem; color:var(--muted); }
+  footer .wrap { display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; max-width:1200px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="./index.html" class="logo">Stany Arthur Gagnaux</a>
+    <a href="./index.html#work" class="back">← All work</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="crumb"><a href="./index.html">Home</a> &nbsp;/&nbsp; <a href="./index.html#work">Work</a> &nbsp;/&nbsp; <span style="color:var(--text);">RAC Research</span></div>
+
+  <header class="hdr">
+    <div class="active-banner"><span class="pulse"></span> Active venture</div>
+    <div class="kicker">Independent commodity research &amp; analytics · 2026</div>
+    <h1>RAC Research</h1>
+    <div class="hdr-meta">
+      <div><div class="hdr-meta-label">Type</div><div class="hdr-meta-value">Independent venture</div></div>
+      <div><div class="hdr-meta-label">Focus</div><div class="hdr-meta-value">Commodities · Macro</div></div>
+      <div><div class="hdr-meta-label">Base</div><div class="hdr-meta-value">Geneva corridor</div></div>
+      <div><div class="hdr-meta-label">Founded</div><div class="hdr-meta-value">2026</div></div>
+    </div>
+  </header>
+</div>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">The venture</div>
+      <div class="prose">
+        <div class="brand-card">
+          <div class="brand-logo-wrap">
+            <img src="./assets/rac-logo.png" alt="RAC Research — Rhône-Alpine Commodity" />
+          </div>
+          <div class="brand-tagline">"Where the trades are made."</div>
+        </div>
+        <p>
+          The Rhône does not announce itself. It moves carving through the Alps, feeding the great lakes, carrying Alpine water into the Mediterranean. For centuries that corridor has been a route for trade: salt, grain, oil, metals. Today, the companies that move the world's physical commodities still cluster along it. Geneva. Zug. The river has not changed its purpose.
+        </p>
+        <p>
+          RAC Research was built in that tradition. Not as an institution, not as a trading house but as an independent analytical voice anchored to the geography that understands commodities better than anywhere else on earth. One commodity. One thesis. One page. Rigorous enough to be taken seriously. Independent enough to say what the desk notes do not.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">Coverage</div>
+      <div class="prose">
+        <div class="focus-grid">
+          <div class="focus-cell">
+            <div class="focus-label">Energy</div>
+            <div class="focus-value">Natural gas, power, crude</div>
+            <div class="focus-detail">European supply-demand balances, storage and LNG flows, TTF price formation and interconnected markets</div>
+          </div>
+          <div class="focus-cell">
+            <div class="focus-label">Industrial commodities</div>
+            <div class="focus-value">Metals and raw materials</div>
+            <div class="focus-detail">Supply chain dynamics, transition-driven demand shifts, cross-commodity interaction with energy</div>
+          </div>
+          <div class="focus-cell">
+            <div class="focus-label">Macro overlay</div>
+            <div class="focus-value">Policy and positioning</div>
+            <div class="focus-detail">EU energy policy, trade flows, sanctions exposure, managed money positioning, currency effects</div>
+          </div>
+          <div class="focus-cell">
+            <div class="focus-label">Analytics</div>
+            <div class="focus-value">Python-based research tools</div>
+            <div class="focus-detail">Data pipelines, spread modelling, scenario analysis, COT positioning signals</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="body">
+  <div class="wrap">
+    <div class="section-grid">
+      <div class="label">Why this</div>
+      <div class="prose">
+        <p>
+          The energy transition is restructuring commodity markets faster than most existing research frameworks can track. European gas and power markets have undergone structural changes from Russia's role as a dominant supplier to the rapid buildout of LNG infrastructure and renewables that require analysis grounded in the physical market, not just financial price action.
+        </p>
+        <p>
+          My background in quantitative research, portfolio management, and ESG transition risk provides a direct entry point. The same questions I explored empirically in the sustainable lending paper how climate transition risk prices into financial markets are live in real time across commodity curves. RAC Research is where that work becomes operational.
+        </p>
+        <p>
+          We write from the country where the trades are made. That proximity is not decoration. It is the entire point.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="next">
+    <a href="./index.html" class="next-link">
+      <div>
+        <div class="next-label">Return</div>
+        <div class="next-title">Back to home</div>
+      </div>
+      <div class="next-arrow">↺</div>
+    </a>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Stany Arthur Gagnaux</span>
+    <a href="./index.html">Home</a>
+  </div>
+</footer>
+
+</body>
+</html>
