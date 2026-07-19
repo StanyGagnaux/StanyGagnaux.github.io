@@ -66,23 +66,20 @@
     font-weight: 500;
   }
 
-  .weights-table {
-    width:100%; border-collapse:collapse; font-size:0.95rem;
-    border-top:1px solid var(--line-strong);
+  .holdings-list {
+    display:flex; flex-wrap:wrap; gap:0.6rem;
+    margin:1.25rem 0;
   }
-  .weights-table th, .weights-table td {
-    padding:0.9rem 0.5rem; text-align:left; border-bottom:1px solid var(--line);
+  .holding-pill {
+    display:inline-flex; align-items:center;
+    padding:0.5rem 1rem;
+    border:1px solid var(--line-strong);
+    border-radius:999px;
+    font-size:0.88rem; font-weight:500;
     font-variant-numeric:tabular-nums;
+    color:var(--text);
+    background:#fff;
   }
-  .weights-table th { font-weight:500; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); }
-  .weights-table td.num { text-align:right; }
-  .weights-table .up { color:#2C7A4A; }
-  .weights-table .down { color:var(--accent); }
-  .weight-bar {
-    display:inline-block; height:6px; background:var(--text);
-    vertical-align:middle; margin-right:0.5rem; border-radius:2px;
-  }
-  .weights-table td .weight-cell { display:flex; align-items:center; justify-content:flex-end; gap:0.5rem; }
 
   .privacy-note {
     font-size:0.85rem; color:var(--muted); margin-top:1.5rem;
@@ -121,20 +118,20 @@
 
     <div class="topstats">
       <div class="topstat">
-        <div class="topstat-label">Since inception</div>
-        <div class="topstat-value up">+78.1%</div>
+        <div class="topstat-label">Rate of return</div>
+        <div class="topstat-value up">+118.0%</div>
       </div>
       <div class="topstat">
-        <div class="topstat-label">Last year (2025)</div>
-        <div class="topstat-value up">+54.6%</div>
+        <div class="topstat-label">YTD</div>
+        <div class="topstat-value up">+46.1%</div>
       </div>
       <div class="topstat">
-        <div class="topstat-label">YTD (30 Apr)</div>
-        <div class="topstat-value up">+12.9%</div>
+        <div class="topstat-label">Positions</div>
+        <div class="topstat-value">12</div>
       </div>
       <div class="topstat">
-        <div class="topstat-label">Largest weight</div>
-        <div class="topstat-value">AMD<span class="unit"> · 38%</span></div>
+        <div class="topstat-label">Style</div>
+        <div class="topstat-value">Long only</div>
       </div>
     </div>
   </header>
@@ -174,99 +171,27 @@
 <section class="body">
   <div class="wrap">
     <div class="section-grid">
-      <div class="label">Allocation</div>
+      <div class="label">Holdings</div>
       <div class="prose">
         <p>
-          Current weighting reflects high conviction in the AI semiconductor theme alongside a core of large-cap tech platforms. Smaller positions on the edges represent active case studies in event-driven and contrarian valuation work.
+          Current names held in the portfolio. Individual weights and position level returns are intentionally not shown.
         </p>
-
-        <table class="weights-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Ticker</th>
-              <th class="num">Weight</th>
-              <th class="num">Position P&amp;L</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Advanced Micro Devices</td>
-              <td>AMD</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:80px;"></span>37.7%</div></td>
-              <td class="num up">+125.5%</td>
-            </tr>
-            <tr>
-              <td>ASML Holding</td>
-              <td>ASML</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:42px;"></span>19.6%</div></td>
-              <td class="num up">+84.9%</td>
-            </tr>
-            <tr>
-              <td>Amazon</td>
-              <td>AMZN</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:14px;"></span>6.6%</div></td>
-              <td class="num up">+32.3%</td>
-            </tr>
-            <tr>
-              <td>Netflix</td>
-              <td>NFLX</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:14px;"></span>6.6%</div></td>
-              <td class="num up">+12.1%</td>
-            </tr>
-            <tr>
-              <td>SoFi Technologies</td>
-              <td>SOFI</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:13px;"></span>6.3%</div></td>
-              <td class="num up">+10.8%</td>
-            </tr>
-            <tr>
-              <td>Nike</td>
-              <td>NKE</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:12px;"></span>5.9%</div></td>
-              <td class="num down">−41.0%</td>
-            </tr>
-            <tr>
-              <td>e.l.f. Beauty</td>
-              <td>ELF</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:10px;"></span>5.0%</div></td>
-              <td class="num down">−7.9%</td>
-            </tr>
-            <tr>
-              <td>PayPal</td>
-              <td>PYPL</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:9px;"></span>4.4%</div></td>
-              <td class="num down">−19.7%</td>
-            </tr>
-            <tr>
-              <td>FuboTV</td>
-              <td>FUBO</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:6px;"></span>3.0%</div></td>
-              <td class="num down">−57.3%</td>
-            </tr>
-            <tr>
-              <td>Novo Nordisk</td>
-              <td>NVO</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:5px;"></span>2.2%</div></td>
-              <td class="num down">−11.5%</td>
-            </tr>
-            <tr>
-              <td>Grab</td>
-              <td>GRAB</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:3px;"></span>1.5%</div></td>
-              <td class="num down">−8.1%</td>
-            </tr>
-            <tr>
-              <td>Hims &amp; Hers Health</td>
-              <td>HIMS</td>
-              <td class="num"><div class="weight-cell"><span class="weight-bar" style="width:3px;"></span>1.3%</div></td>
-              <td class="num up">+60.3%</td>
-            </tr>
-          </tbody>
-        </table>
-
+        <div class="holdings-list">
+          <span class="holding-pill">AMD</span>
+          <span class="holding-pill">ASML</span>
+          <span class="holding-pill">AMZN</span>
+          <span class="holding-pill">NFLX</span>
+          <span class="holding-pill">SOFI</span>
+          <span class="holding-pill">NKE</span>
+          <span class="holding-pill">ELF</span>
+          <span class="holding-pill">PYPL</span>
+          <span class="holding-pill">FUBO</span>
+          <span class="holding-pill">NVO</span>
+          <span class="holding-pill">GRAB</span>
+          <span class="holding-pill">HIMS</span>
+        </div>
         <div class="privacy-note">
-          Weights and percentage returns shown. Absolute position sizes intentionally omitted.
+          Figures above are updated periodically rather than shown live. For the systematic side of my market work, including intraday signal generation, see the trading page below.
         </div>
       </div>
     </div>
@@ -275,12 +200,12 @@
 
 <div class="wrap">
   <section class="next">
-    <a href="./index.html" class="next-link">
+    <a href="./trading.html" class="next-link">
       <div>
-        <div class="next-label">Return</div>
-        <div class="next-title">Back to home</div>
+        <div class="next-label">Next</div>
+        <div class="next-title">Systematic trading</div>
       </div>
-      <div class="next-arrow">↺</div>
+      <div class="next-arrow">→</div>
     </a>
   </section>
 </div>
