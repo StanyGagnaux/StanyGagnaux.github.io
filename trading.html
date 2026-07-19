@@ -160,7 +160,7 @@
           My trading work sits alongside the fundamental equity portfolio but runs on a different logic entirely. Where the portfolio is built bottom up on company research, this side of the practice is built on intraday market structure across NQ1, Gold, and SPX: where volume actually trades, where trend is confirmed, and where large speculative accounts are positioned.
         </p>
         <p>
-          The stack combines intraday volume analysis, trend confirmation, and macro positioning reports into a single read on each market. None of these signals is used in isolation. The edge is in the overlap: a VWAP reaction that lines up with an EMA trend signal and a COT extreme carries far more weight than any single input on its own.
+          The stack combines intraday volume analysis, order flow, trend confirmation, and macro positioning reports into a single read on each market. None of these signals is used in isolation. The edge is in the overlap: a VWAP reaction that lines up with liquidity on the Bookmap heatmap and an EMA trend signal carries far more weight than any single input on its own.
         </p>
       </div>
     </div>
@@ -185,21 +185,26 @@
           </div>
           <div class="stack-cell">
             <div class="stack-num">03</div>
+            <div class="stack-label">Bookmap</div>
+            <div class="stack-detail">Order flow and liquidity heatmap. Visualizing real time depth of market and executed volume to see where size is resting and where liquidity is being absorbed.</div>
+          </div>
+          <div class="stack-cell">
+            <div class="stack-num">04</div>
             <div class="stack-label">EMA</div>
             <div class="stack-detail">Exponential moving averages for trend confirmation and timing, filtering signals against the prevailing direction rather than trading against it.</div>
           </div>
           <div class="stack-cell">
-            <div class="stack-num">04</div>
+            <div class="stack-num">05</div>
             <div class="stack-label">COT reports</div>
             <div class="stack-detail">Commitment of Traders data to read managed money net long and net short positioning, flagging crowded trades and potential reversals.</div>
           </div>
           <div class="stack-cell">
-            <div class="stack-num">05</div>
+            <div class="stack-num">06</div>
             <div class="stack-label">Technical analysis</div>
             <div class="stack-detail">Price action, structure, and key levels layered on top of the quantitative inputs to time entries within the broader thesis.</div>
           </div>
           <div class="stack-cell">
-            <div class="stack-num">06</div>
+            <div class="stack-num">07</div>
             <div class="stack-label">News algorithm</div>
             <div class="stack-detail">An automated pipeline that scans news flow for market moving headlines and pushes structured alerts straight to Telegram.</div>
           </div>
